@@ -11,6 +11,7 @@ import javafx.scene.control.TextField;
 import javafx.scene.control.Label;
 
 import javafx.event.ActionEvent;
+import javafx.stage.Modality;
 import javafx.stage.Stage;
 
 import java.io.IOException;
@@ -31,23 +32,23 @@ public class LoginController implements Initializable {
     @FXML
     private Button buttonForgotPassword;
 
-    Stage prevStage;
-    public void setPrevStage(Stage stage)
-    {
-        this.prevStage = stage;
-    }
+    MainController mainController = new MainController();
 
     @FXML
     public void login(ActionEvent event) throws IOException {
         if (txtUserName.getText().equals("user") && txtPassword.getText().equals("pass")) {
             lblStatus.setText("Zalogowano");
 
+            Parent root = FXMLLoader.load(CarServiceController.class.getResource("/resources/fxmlFiles/carService.fxml"));
             Stage stage = new Stage();
-            Parent root = FXMLLoader.load(getClass().getResource("fxmlFiles/carService.fxml"));
             stage.setTitle("Program do zarządzania samochodem");
-            stage.setScene(new Scene(root, 600, 400));
-            prevStage.close();
+            stage.setScene(mainController.getScene());
+            mainController.setPrevStage(stage);
+            mainController.getRoot().getChildren().add(root);
+            stage.initModality(Modality.APPLICATION_MODAL);
             stage.show();
+
+
         } else {
             lblStatus.setText("Nieprawidłowy login lub hasło");
         }
