@@ -5,8 +5,8 @@
 <?import javafx.scene.control.MenuBar?>
 <?import javafx.scene.control.MenuItem?>
 <?import javafx.scene.control.SeparatorMenuItem?>
-<?import javafx.scene.control.Tab?>
-<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.ToggleButton?>
+<?import javafx.scene.control.ToggleGroup?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.VBox?>
 
@@ -16,32 +16,23 @@
       <menus>
         <Menu mnemonicParsing="false" text="File">
           <items>
-            <MenuItem mnemonicParsing="false" text="New" />
-            <MenuItem mnemonicParsing="false" text="Open…" />
-            <Menu mnemonicParsing="false" text="Open Recent" />
+            <MenuItem mnemonicParsing="false" text="Strona główna" />
+            <MenuItem mnemonicParsing="false" text="Tankowania" />
+            <MenuItem mnemonicParsing="false" text="Naprawy" />
             <SeparatorMenuItem mnemonicParsing="false" />
-            <MenuItem mnemonicParsing="false" text="Close" />
-            <MenuItem mnemonicParsing="false" text="Save" />
-            <MenuItem mnemonicParsing="false" text="Save As…" />
-            <MenuItem mnemonicParsing="false" text="Revert" />
-            <SeparatorMenuItem mnemonicParsing="false" />
-            <MenuItem mnemonicParsing="false" text="Preferences…" />
+            <MenuItem mnemonicParsing="false" text="Mój garaż" />
             <SeparatorMenuItem mnemonicParsing="false" />
             <MenuItem mnemonicParsing="false" text="Quit" />
           </items>
         </Menu>
         <Menu mnemonicParsing="false" text="Edit">
           <items>
-            <MenuItem mnemonicParsing="false" text="Undo" />
-            <MenuItem mnemonicParsing="false" text="Redo" />
+            <MenuItem mnemonicParsing="false" text="Dodaj tankowanie" />
+            <MenuItem mnemonicParsing="false" text="Dodaj naprawę" />
             <SeparatorMenuItem mnemonicParsing="false" />
-            <MenuItem mnemonicParsing="false" text="Cut" />
-            <MenuItem mnemonicParsing="false" text="Copy" />
-            <MenuItem mnemonicParsing="false" text="Paste" />
-            <MenuItem mnemonicParsing="false" text="Delete" />
-            <SeparatorMenuItem mnemonicParsing="false" />
-            <MenuItem mnemonicParsing="false" text="Select All" />
-            <MenuItem mnemonicParsing="false" text="Unselect All" />
+            <MenuItem mnemonicParsing="false" text="Wyczyść" />
+            <MenuItem mnemonicParsing="false" text="Zapisz" />
+            <MenuItem mnemonicParsing="false" text="Anuluj" />
           </items>
         </Menu>
         <Menu mnemonicParsing="false" text="Help">
@@ -53,23 +44,14 @@
     </MenuBar>
     <AnchorPane maxHeight="-1.0" maxWidth="-1.0" prefHeight="-1.0" prefWidth="-1.0" VBox.vgrow="ALWAYS">
       <children>
-            <TabPane layoutX="62.0" layoutY="14.0" prefHeight="375.0" prefWidth="640.0" tabClosingPolicy="UNAVAILABLE" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-              <tabs>
-                <Tab text="Strona główna">
-                  <content>
-                    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
-                           <children>
-                              <Button fx:id="buttonAddRefueling" layoutX="31.0" layoutY="45.0" mnemonicParsing="false" onAction="#addRefueling" text="Dodaj tankowanie" />
-                           </children></AnchorPane>
-                  </content>
-                </Tab>
-                <Tab text="Naprawy">
-                  <content>
-                    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
-                  </content>
-                </Tab>
-              </tabs>
-            </TabPane>
+            <ToggleButton mnemonicParsing="false" prefHeight="47.0" prefWidth="112.0" text="Strona główna">
+               <toggleGroup>
+                  <ToggleGroup fx:id="menu" />
+               </toggleGroup>
+            </ToggleButton>
+            <ToggleButton layoutX="112.0" mnemonicParsing="false" prefHeight="47.0" prefWidth="112.0" text="Tankowania" toggleGroup="$menu" />
+            <ToggleButton layoutX="224.0" mnemonicParsing="false" prefHeight="47.0" prefWidth="112.0" text="Naprawy" toggleGroup="$menu" />
+            <Button fx:id="buttonAddRefueling" layoutX="24.0" layoutY="153.0" mnemonicParsing="false" onAction="#addRefueling" text="Dodaj tankowanie" />
       </children>
     </AnchorPane>
   </children>

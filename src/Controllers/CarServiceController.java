@@ -21,13 +21,9 @@ public class CarServiceController {
 
     @FXML
     void addRefueling(ActionEvent event) throws IOException {
-        Stage stage = new Stage();
-        Parent root = FXMLLoader.load(getClass().getResource("/resources/fxmlFiles/addRefueling.fxml"));
-        stage.setTitle("Program do zarządzania samochodem");
-        stage.setScene(new Scene(root, 600, 400));
-        mainController.setPrevStage(stage);
-        stage.initModality(Modality.APPLICATION_MODAL);
-        stage.show();
+        Stage stage = new Stage();;
+       mainController.loadFxml("/resources/fxmlFiles/addRefueling.fxml", stage);
+
     }
 
 }

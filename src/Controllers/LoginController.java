@@ -1,10 +1,7 @@
 package Controllers;
 
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
@@ -38,17 +35,8 @@ public class LoginController implements Initializable {
     public void login(ActionEvent event) throws IOException {
         if (txtUserName.getText().equals("user") && txtPassword.getText().equals("pass")) {
             lblStatus.setText("Zalogowano");
-
-            Parent root = FXMLLoader.load(CarServiceController.class.getResource("/resources/fxmlFiles/carService.fxml"));
             Stage stage = new Stage();
-            stage.setTitle("Program do zarządzania samochodem");
-            stage.setScene(mainController.getScene());
-            mainController.setPrevStage(stage);
-            mainController.getRoot().getChildren().add(root);
-            stage.initModality(Modality.APPLICATION_MODAL);
-            stage.show();
-
-
+            mainController.loadFxml("/resources/fxmlFiles/carService.fxml", stage);
         } else {
             lblStatus.setText("Nieprawidłowy login lub hasło");
         }
