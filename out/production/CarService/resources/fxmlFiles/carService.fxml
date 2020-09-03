@@ -5,9 +5,7 @@
 <?import javafx.scene.control.MenuBar?>
 <?import javafx.scene.control.MenuItem?>
 <?import javafx.scene.control.SeparatorMenuItem?>
-<?import javafx.scene.control.ToggleButton?>
-<?import javafx.scene.control.ToggleGroup?>
-<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.VBox?>
 
 <VBox prefHeight="400.0" prefWidth="640.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.CarServiceController">
@@ -42,17 +40,14 @@
         </Menu>
       </menus>
     </MenuBar>
-    <AnchorPane maxHeight="-1.0" maxWidth="-1.0" prefHeight="-1.0" prefWidth="-1.0" VBox.vgrow="ALWAYS">
-      <children>
-            <ToggleButton mnemonicParsing="false" prefHeight="47.0" prefWidth="112.0" text="Strona główna">
-               <toggleGroup>
-                  <ToggleGroup fx:id="menu" />
-               </toggleGroup>
-            </ToggleButton>
-            <ToggleButton layoutX="112.0" mnemonicParsing="false" prefHeight="47.0" prefWidth="112.0" text="Tankowania" toggleGroup="$menu" />
-            <ToggleButton layoutX="224.0" mnemonicParsing="false" prefHeight="47.0" prefWidth="112.0" text="Naprawy" toggleGroup="$menu" />
-            <Button fx:id="buttonAddRefueling" layoutX="24.0" layoutY="153.0" mnemonicParsing="false" onAction="#addRefueling" text="Dodaj tankowanie" />
-      </children>
-    </AnchorPane>
+      <BorderPane fx:id="borderPane" prefHeight="200.0" prefWidth="200.0">
+         <top>
+            <VBox prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="CENTER" />
+           <fx:include fx:id="topMenuButtons" source="topMenuButtons.fxml" />
+         </top>
+         <left>
+            <Button fx:id="buttonAddRefueling" mnemonicParsing="false" onAction="#addRefueling" text="Dodaj tankowanie" BorderPane.alignment="CENTER" />
+         </left>
+      </BorderPane>
   </children>
 </VBox>
