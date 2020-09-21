@@ -1,37 +1,47 @@
 package Controllers;
 
 
+import Classes.FxmlLoader;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.control.Button;
 import javafx.scene.layout.BorderPane;
-import javafx.stage.Stage;
+import javafx.scene.layout.Pane;
 
-import java.io.IOException;
+import java.net.URL;
+import java.util.ResourceBundle;
 
 public class CarServiceController {
 
     @FXML
-    private Button buttonAddRefueling;
+    private ResourceBundle resources;
+
+    @FXML
+    private URL location;
 
     @FXML
     private BorderPane borderPane;
 
     @FXML
-    private TopMenuButtonsController topMenuButtonsController;
-
-    MainController mainController = new MainController();
-
-    @FXML
-    private void initialize() {
-        topMenuButtonsController.setCarServiceController(this);
+    void addRefueling(ActionEvent event) {
+        FxmlLoader object = new FxmlLoader();
+        Pane view = object.getPage("addRefueling");
+        borderPane.setCenter(view);
     }
 
     @FXML
-    void addRefueling(ActionEvent event) throws IOException {
-        Stage stage = new Stage();
-        mainController.loadFxml("/resources/fxmlFiles/addRefueling.fxml", stage);
+    void addServices(ActionEvent event) {
+        FxmlLoader object = new FxmlLoader();
+        Pane view = object.getPage("addServices");
+        borderPane.setCenter(view);
     }
+
+    @FXML
+    void loadMainPage(ActionEvent event) {
+        FxmlLoader object = new FxmlLoader();
+        Pane view = object.getPage("mainPage");
+        borderPane.setCenter(view);
+    }
+
 
 
 }

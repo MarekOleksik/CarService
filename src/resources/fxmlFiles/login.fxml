@@ -10,7 +10,7 @@
 <?import javafx.scene.shape.Line?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #abdcfa;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.LoginController">
+<AnchorPane fx:id="content" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #abdcfa;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.LoginController">
    <children>
       <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="22.0" layoutY="150.0" pickOnBounds="true" preserveRatio="true">
          <image>
@@ -18,15 +18,17 @@
          </image>
       </ImageView>
       <Line endX="-15.0" endY="204.0" layoutX="294.0" layoutY="110.0" startX="-15.0" startY="-25.0" />
-      <TextField fx:id="txtUserName" layoutX="336.0" layoutY="111.0" promptText="Login" />
-      <PasswordField fx:id="txtPassword" layoutX="336.0" layoutY="164.0" promptText="Hasło" />
-      <Button layoutX="336.0" layoutY="219.0" mnemonicParsing="false" onAction="#login" prefHeight="25.0" prefWidth="149.0" text="Zaloguj" />
+      <TextField fx:id="txtUserName" layoutX="336.0" layoutY="103.0" promptText="Login" />
+      <PasswordField fx:id="txtPassword" layoutX="336.0" layoutY="159.0" promptText="Hasło" />
+      <Button layoutX="336.0" layoutY="219.0" mnemonicParsing="false" onAction="#login" prefHeight="35.0" prefWidth="149.0" text="Zaloguj" />
       <Label layoutX="97.0" layoutY="25.0" text="Program do zarządzania samochodem">
          <font>
             <Font size="24.0" />
          </font>
       </Label>
       <Label fx:id="lblStatus" layoutX="336.0" layoutY="259.0" prefHeight="45.0" prefWidth="149.0" textAlignment="CENTER" wrapText="true" />
-      <Button fx:id="buttonForgotPassword" layoutX="336.0" layoutY="315.0" mnemonicParsing="false" onAction="#forgotPassword" prefHeight="25.0" prefWidth="149.0" text="Zapomniałem hasła" />
+      <Button fx:id="buttonForgotPassword" layoutX="336.0" layoutY="315.0" mnemonicParsing="false" onAction="#forgotPassword" prefHeight="35.0" prefWidth="149.0" text="Zapomniałem hasła" />
+      <Label layoutX="336.0" layoutY="85.0" text="Podaj login:" />
+      <Label layoutX="336.0" layoutY="141.0" text="Podaj hasło:" />
    </children>
 </AnchorPane>

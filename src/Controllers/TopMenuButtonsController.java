@@ -1,7 +1,10 @@
 package Controllers;
 
+import com.sun.tools.javac.Main;
 import javafx.fxml.FXML;
 import javafx.scene.control.ToggleGroup;
+
+import java.io.IOException;
 
 public class TopMenuButtonsController {
 
@@ -16,7 +19,7 @@ public class TopMenuButtonsController {
     }
 
     @FXML
-    void openRefueling() {
+    void openRefueling() throws IOException {
 
     }
 
